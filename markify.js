@@ -82,14 +82,11 @@ var markifySearch = function(querystring_search, callback){
     'use strict';
 
     var search_url = search_url_base + querystring_search;
-    console.log('BEFORE cache_requests: ' + search_url);
     var search_result = cache_requests.get(encodeURIComponent(search_url));
-    console.log('AFTER cache_requests');
     if(search_result){
         callback(null, search_result.result, search_result.totalFound);
         return;
     }
-    console.log('search_result: ' + JSON.stringify(search_result, null, 4));
 
     var operation = retry.operation({
         retries: 3,
@@ -124,10 +121,6 @@ var markifySearch = function(querystring_search, callback){
                     return;
                 }
                 catch(e){
-                    console.log('body: '+body);
-                    console.log('search_url: '+search_url);
-                    console.log('response: '+JSON.stringify(response, null, 4));
-                    console.log('e: '+e);
                     operation.retry(e);
                     return;
                 }
