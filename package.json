@@ -1,0 +1,17 @@
+{
+    "name": "brand-classifier",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dependencies": {
+            "request": "*",
+            "async": "*",
+            "winston":"*",
+            "natural": "*",
+            "xmldom": "*",
+            "xpath": "*",
+            "retry": "*",
+            "nconf": "*"
+        }
+    }
+}
